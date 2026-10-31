@@ -49,3 +49,8 @@ test('mobile styles do not force a viewport wider than 320px', async () => {
   assert.match(css, /body\{margin:0;min-width:320px\}/)
   assert.match(css, /@media\(max-width:600px\)\{body\{min-width:320px\}/)
 })
+
+test('free-only filter requires an explicit free flag', async () => {
+  const app = await read('../src/App.tsx')
+  assert.match(app, /\(!filters\.free \|\| event\.free === true\)/)
+})
