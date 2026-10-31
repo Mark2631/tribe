@@ -1,0 +1,23 @@
+{
+  "id": "/",
+  "name": "TRIBE — Find your people. Live more.",
+  "short_name": "TRIBE",
+  "description": "Discover local adventures and make plans together.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "background_color": "#fbfaf7",
+  "theme_color": "#fbfaf7",
+  "categories": ["social", "travel", "lifestyle"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "/screenshot-wide.svg", "sizes": "1280x800", "type": "image/svg+xml", "form_factor": "wide", "label": "Explore adventures with TRIBE" },
+    { "src": "/screenshot-narrow.svg", "sizes": "390x844", "type": "image/svg+xml", "form_factor": "narrow", "label": "TRIBE on mobile" }
+  ]
+}
