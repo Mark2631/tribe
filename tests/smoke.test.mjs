@@ -43,3 +43,9 @@ test('new plans preserve insertion order unless the user selects sorting', async
   const app = await read('../src/App.tsx')
   assert.match(app, /\.sort\(\(a, b\) => sort \? a\.people - b\.people : 0\)/)
 })
+
+test('mobile styles do not force a viewport wider than 320px', async () => {
+  const css = await read('../src/styles.css')
+  assert.match(css, /body\{margin:0;min-width:320px\}/)
+  assert.match(css, /@media\(max-width:600px\)\{body\{min-width:320px\}/)
+})
