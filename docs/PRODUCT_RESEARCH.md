@@ -2,6 +2,13 @@
 
 Research checked on 31 October 2026. The product references below informed interaction choices; TRIBE's branding, copy, layout, and code are original.
 
+## Pilot geography
+
+Meru is the default pilot location, with Nairobi available as a second sample city. MUST identifies its main campus as Nchiru, about 15 km from Meru Town on the Meru–Maua Road. This informed the campus and town references; all TRIBE schedules, hosts, attendee counts, and distances remain illustrative rather than real listings.
+
+- [Meru University of Science and Technology: location](https://www.must.ac.ke/location/)
+- [National Museums of Kenya: Meru Museum](https://nmk.go.ke/meru-museum/)
+
 ## Product patterns worth adapting
 
 - **AllTrails — practical community knowledge.** Reviews include current trail conditions, not just a star score. TRIBE's plan detail view therefore makes the host, meetup time and place, availability, beginner cues, and a brief safety note visible before someone joins. A future shared version should let attendees add a post-adventure condition or access note, with a clear timestamp and source.
@@ -19,17 +26,20 @@ Research checked on 31 October 2026. The product references below informed inter
 - The manifest includes app identity, standalone display, 192px and 512px icons, a maskable icon, and wide and narrow screenshots to support richer install surfaces where the browser offers them.
 - A service worker caches the app shell and same-origin resources for returning offline visits. Unsplash photos and Google Fonts are external and need a network connection; do not imply that maps or remote media are available offline.
 - Install UI follows the browser's own install affordance and provides a short device-specific fallback when no prompt event is available.
+  - The app entry remains a real deep link: shared plans open directly, including on a browser without that plan in local storage.
+  - The service worker shell cache is versioned so a new app release replaces the prior shell cleanly.
+  - Local backup is explicit and portable: users can export or restore their saved state without an account.
+  - [MDN PWA best practices](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Best_practices) calls for responsive layouts, offline behavior, deep links, speed, and accessibility across input types. TRIBE's local records and cached app shell work offline; external photos and fonts still require a connection.
   - [Chrome installable manifest criteria](https://developer.chrome.com/docs/lighthouse/pwa/installable-manifest/)
   - [web.dev PWA guide](https://web.dev/learn/pwa/)
 
 ## Deliberate prototype limits
 
-Event, host, member, and community records are sample data. RSVPs, saves, and the outgoing demo conversation are stored only in the current browser's local storage. They do not create real accounts, send messages to another person, verify attendance, or synchronize between devices. The displayed locations and distances are sample copy, not live GPS or route guidance.
+Event, host, member, and community records are sample data. RSVPs, saves, and the outgoing demo conversation are stored only in the current browser's local storage. They do not create real accounts, send messages to another person, verify attendance, or synchronize between devices. Shared plan URLs carry the event details in the URL so recipients can open them without an account; anyone with the URL can see those details. The displayed distances are sample copy, not live GPS or route guidance. Users should use public meetup points and keep private information out of shareable plans.
 
 ## Highest-value next increments
 
-1. Make demo boundaries unmistakable anywhere sample people or activity are shown.
-2. Add community follow and post-activity field notes, with report and block controls before inviting real people.
+1. Add community follow and post-activity field notes, with report and block controls before inviting real people.
 3. Add an opt-in, privacy-conscious map/list toggle once a map data source, attribution, and location policy are selected.
-4. Design local-first storage versioning/export before introducing any shared backend; keep migrations between schema versions safe.
+4. Add multi-device sync only after users can choose an appropriate backend and understand where plan and profile data is stored; retain export and migration support.
 5. Validate the complete create → discover → detail → RSVP → message → attend → field-note loop with real students before adding broad feature scope.
